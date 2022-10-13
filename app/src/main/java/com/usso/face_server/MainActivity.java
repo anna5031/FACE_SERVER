@@ -2,6 +2,7 @@ package com.usso.face_server;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.textclassifier.TextLinks;
 import android.widget.TextView;
@@ -45,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
             // response from the server
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 pagenameTextView.setText(response.body().string());
-                //pagenameTextView.setText("connected");
+                Intent intent = new Intent(MainActivity.this, DummyActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
