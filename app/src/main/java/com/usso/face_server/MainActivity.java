@@ -2,8 +2,10 @@ package com.usso.face_server;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.textclassifier.TextLinks;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,9 +27,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         OkHttpClient okHttpClient = new OkHttpClient();
-        Request request = new Request.Builder().url("http://192.168.118.156:5000/").build();
+        Request request = new Request.Builder().url("http://192.168.0.144:5000/").build();
         pagenameTextView = findViewById(R.id.pagename);
 
+        Intent intent = new Intent(MainActivity.this, SendImageActivity.class);
+        startActivity(intent);
+        finish();
+        /*
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             // called if server is unreachable
@@ -45,11 +51,14 @@ public class MainActivity extends AppCompatActivity {
             // called if we get a
             // response from the server
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                pagenameTextView.setText(response.body().string());
-                Intent intent = new Intent(MainActivity.this, DummyActivity.class);
-                startActivity(intent);
-                finish();
+                //pagenameTextView.setText(response.body().string());
+                //Intent intent = new Intent(MainActivity.this, SendImageActivity.class);
+                //startActivity(intent);
+                //finish();
+                //Log.w("mainactivity", "onResponse() 호출됨.");
             }
         });
+
+        */
     }
 }

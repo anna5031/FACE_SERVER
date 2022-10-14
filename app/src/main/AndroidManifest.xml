@@ -26,6 +26,9 @@
         <activity
             android:name=".DummyActivity"
             android:exported="true"/>
+        <activity
+            android:name=".SendImageActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
